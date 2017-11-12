@@ -1,0 +1,52 @@
+.toolbar
+{
+    height: 32px;
+    padding: 8px 10px;
+    display: flex;
+}
+
+.toolbar-button
+{
+    margin-left: 10px;
+    background: #444;
+    border: 1px solid #111;
+    border-radius: 3px;
+    color: #888;
+    font-size: 12px;
+    height: 24px;
+    line-height: 22px;
+    padding: 0 8px;
+    display: block;
+
+    &:first-child
+    {
+        margin-left: 0;
+    }
+}
+
+.toolbar-search
+{
+    margin-left: 10px;
+    background: #111;
+    border: 1px solid #080808;
+    border-radius: 3px;
+    color: #888;
+    font-size: 12px;
+    height: 24px;
+    line-height: 22px;
+    padding: 0 6px;
+    display: block;
+    appearance: none;
+    transition: all ease 0.2s;
+
+    &:first-child
+    {
+        margin-left: 0;
+    }
+
+    &:focus
+    {
+        border-color: @via;
+        box-shadow: 0 0 0 1px @via;
+    }
+}

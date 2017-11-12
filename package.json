@@ -1,0 +1,15 @@
+{
+    "name": "via-ui",
+    "version": "1.0.0",
+    "description": "VIA UI default styles.",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "via",
+        "trading",
+        "ui"
+    ],
+    "repository": "https://bitbucket.org/via-trading/via-ui",
+    "author": "Dakota Gordon"
+}
