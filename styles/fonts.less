@@ -1,0 +1,16 @@
+@root-path: 'via://ui/fonts';
+
+.font (@name, @weight, @style, @file){
+
+  @font-path: '@{root-path}/@{file}';
+
+    @font-face {
+        font-family: @name;
+        font-weight: @weight;
+        font-style: @style;
+        src: url(@font-path);
+    }
+}
+
+.font('Inconsolata', 400, 'normal', 'Inconsolata/Inconsolata-Regular.ttf');
+.font('Inconsolata', 700, 'normal', 'Inconsolata/Inconsolata-Bold.ttf');

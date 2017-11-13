@@ -1,0 +1,35 @@
+@import "variables";
+
+via-workspace
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    color: @text-color;
+    background-color: @workspace-background-color;
+    font-family: @font-family;
+
+    via-workspace-axis
+    {
+        position: relative;
+    }
+
+    via-workspace-axis.horizontal
+    {
+        display: flex;
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    via-workspace-axis.vertical
+    {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-width: 0;
+        min-height: 0;
+    }
+}

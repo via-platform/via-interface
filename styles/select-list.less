@@ -1,57 +1,105 @@
-@import "ui-variables";
-@import "octicon-mixins";
+@import "variables";
+@component-padding: 0;
 
-.select-list {
-  .loading {
-    .loading-message {
-      .octicon(hourglass);
+.select-list
+{
+    .loading
+    {
+        .loading-message
+        {
+            //   .octicon(hourglass);
+            &:before
+            {
+                font-size: 1.1em;
+                width: 1.1em;
+                height: 1.1em;
+                margin-right: 5px;
+            }
+        }
 
-      &:before {
-        font-size: 1.1em;
-        width: 1.1em;
-        height: 1.1em;
-        margin-right: 5px;
-      }
+        .badge
+        {
+            margin-left: 10px;
+        }
     }
 
-    .badge {
-      margin-left: 10px;
+    ol.list-group
+    {
+        position: relative;
+        overflow-y: auto;
+        max-height: 500px;
+        margin: @component-padding 0 0;
+        padding: 0;
+
+        li
+        {
+            display: flex;
+            align-items: center;
+
+            .primary-line,
+            .secondary-line
+            {
+                flex: 1;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            .primary-line
+            {
+                font-size: 13px;
+                color: #AAA;
+            }
+
+            .metadata
+            {
+                display: flex;
+            }
+
+            .key-binding
+            {
+                margin-left: 4px;
+                border-radius: 2px;
+                background: #AAA;
+                font-weight: 700;
+                font-size: 13px;
+                color: @overlay-background-color;
+                padding: 4px 6px;
+                display: block;
+                line-height: 16px;
+            }
+
+            &.selected
+            {
+                background: @primary-color; //lighten(@overlay-background-color, 6%);
+
+                .primary-line
+                {
+                    color: @overlay-background-color;
+                }
+
+                .key-binding
+                {
+                    background: @overlay-background-color;
+                    color: @primary-color;
+                }
+            }
+        }
     }
-  }
-
-  ol.list-group {
-    position: relative;
-    overflow-y: auto;
-    max-height: 312px;
-    margin: @component-padding 0 0 0;
-    padding: 0;
-
-    li {
-      display: block;
-
-      .primary-line,
-      .secondary-line {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-      }
-    }
-  }
 }
-
-
 // Popover List
-
-.select-list.popover-list {
-  width: 200px;
-  min-width: 200px;
-  margin-left: 0;
-  position: relative;
-  background-color: @overlay-background-color;
-
-  ol.list-group {
+.select-list.popover-list
+{
+    width: 200px;
+    min-width: 200px;
+    margin-left: 0;
     position: relative;
-    overflow-y: scroll;
-    max-height: 200px;
-  }
+    background-color: @overlay-background-color;
+
+    ol.list-group
+    {
+        position: relative;
+        overflow-y: scroll;
+        max-height: 200px;
+    }
 }

@@ -1,0 +1,233 @@
+@import "variables";
+
+@via-dock-toggle-button-size: 50px;
+@via-dock-resize-handle-size: 1px;
+
+via-dock
+{
+    display: flex;
+    position: relative;
+}
+
+.via-dock-inner
+{
+    display: flex;
+    align-items: center;
+
+    // Keep the area at least a pixel wide so that you have something to hover
+    // over to trigger the toggle button affordance even when fullscreen.
+    &.left, &.right
+    {
+        min-width: 1px;
+        height: 100%;
+    }
+
+    &.right
+    {
+        right: 0;
+    }
+
+    &.left
+    {
+        left: 0;
+    }
+
+    &.bottom
+    {
+        min-height: 1px;
+        width: 100%;
+        flex-direction: column;
+        bottom: 0;
+    }
+
+    &:not(.via-dock-open)
+    {
+        // The dock should only take up space when it's active (i.e. it shouldn't
+        // take up space when you're dragging something into it).
+        position: absolute;
+        z-index: 10; // An arbitrary number. Seems high enough. ¯\_(ツ)_/¯
+    }
+}
+
+.via-dock-mask
+{
+    position: relative;
+    background-color: transparent;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transition: none;
+
+    &.via-dock-should-animate
+    {
+        transition: width 0.2s ease-out, height 0.2s ease-out;
+    }
+}
+
+.via-dock-content-wrapper
+{
+    position: absolute;
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+
+    &.right
+    {
+        left: 0;
+        flex-direction: row;
+    }
+
+    &.bottom
+    {
+        top: 0;
+        flex-direction: column;
+    }
+
+    &.left
+    {
+        right: 0;
+        flex-direction: row-reverse;
+    }
+}
+
+.via-dock-toggle-button
+{
+    z-index: 11;
+    position: absolute;
+    overflow: hidden;
+    width: @via-dock-toggle-button-size;
+    height: @via-dock-toggle-button-size;
+
+    &.bottom
+    {
+        top: (-@via-dock-toggle-button-size / 2) + @via-dock-resize-handle-size;
+        height: @via-dock-toggle-button-size / 2;
+    }
+
+    &.right
+    {
+        left: (-@via-dock-toggle-button-size / 2) + @via-dock-resize-handle-size;
+        width: @via-dock-toggle-button-size / 2;
+    }
+
+    &.left
+    {
+        right: (-@via-dock-toggle-button-size / 2) + @via-dock-resize-handle-size;
+        width: @via-dock-toggle-button-size / 2;
+    }
+
+    .via-dock-toggle-button-inner
+    {
+        width: @via-dock-toggle-button-size;
+        height: @via-dock-toggle-button-size;
+        border-radius: @via-dock-toggle-button-size / 2;
+        position: absolute;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &.right { left: 0; }
+        &.bottom { top: 0; }
+        &.left { right: 0; }
+    }
+
+    &:not(.via-dock-toggle-button-visible)
+    {
+        .via-dock-toggle-button-inner
+        {
+            &.right { transform: translateX(50%); }
+            &.bottom { transform: translateY(50%); }
+            &.left { transform: translateX(-50%); }
+        }
+    }
+
+    @offset: 8px;
+
+    .via-dock-toggle-button-inner
+    {
+        &.right .icon { transform: translateX(-@offset); }
+        &.bottom .icon { transform: translateY(-@offset); }
+        &.left .icon { transform: translateX(@offset); }
+    }
+
+    .icon
+    {
+        transition: opacity 0.1s ease-in 0.1s;
+        opacity: 1;
+
+        &::before
+        {
+            width: auto;
+            margin: 0;
+        }
+    }
+
+    &:not(.via-dock-toggle-button-visible) .icon
+    {
+        opacity: 0;
+        transition: opacity 0.2s ease-out 0s;
+    }
+
+    .via-dock-toggle-button-inner
+    {
+        background-color: @dock-background-color;
+        border: 1px solid @dock-border-color;
+        transition: transform 0.2s ease-out 0s;
+    }
+
+    &:not(.via-dock-toggle-button-visible)
+    {
+        pointer-events: none;
+
+        .via-dock-toggle-button-inner
+        {
+            transition: transform 0.2s ease-out 0.1s;
+        }
+    }
+}
+
+.via-dock-resize-handle
+{
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    background-color: @dock-border-color;
+
+    &.via-dock-resize-handle-resizable
+    {
+        &.left, &.right { cursor: col-resize; }
+        &.bottom { cursor: row-resize; }
+    }
+
+    &.left, &.right { width: @via-dock-resize-handle-size; }
+    &.bottom { height: @via-dock-resize-handle-size; }
+}
+
+.via-dock-cursor-overlay
+{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+
+    &.left, &.right
+    {
+        cursor: col-resize;
+    }
+
+    &.bottom
+    {
+        cursor: row-resize;
+    }
+
+    &:not(.via-dock-cursor-overlay-visible)
+    {
+        display: none;
+    }
+}

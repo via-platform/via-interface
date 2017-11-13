@@ -1,82 +1,133 @@
+@modal-input-border-color: #111;
+@modal-input-background-color: #222;
 
-//
-// Modals
-// --------------------------------------------------
+via-panel-container.modal
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
 
-.overlay, // deprecated .overlay
-via-panel.modal {
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 50%;
-  width: 500px;
-  margin-left: -250px;
-  z-index: 9999;
-  box-sizing: border-box;
-  border-top: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+via-panel.modal
+{
+    flex: 1;
+    display: block;
+    max-width: 700px;
+    width: 100%;
+    z-index: 9999;
+    box-sizing: border-box;
+    background-color: @dock-background-color;
+    border-radius: 2px;
+    border: 1px solid @modal-input-border-color;
+    margin-top: 100px;
+    position: relative;
+    max-height: 600px;
 
-  color: @text-color;
-  background-color: @overlay-background-color;
+    .input-container
+    {
+        padding: 10px;
 
-  padding: 10px;
-
-  // shrink modals when window gets narrow
-  @media (max-width: 500px) {
-    & {
-      width: 100%;
-      left: 0;
-      margin-left: 0;
+        input
+        {
+            display: block;
+            border: 1px solid @modal-input-border-color;
+            background: @modal-input-background-color;
+            border-radius: 2px;
+            width: 100%;
+            padding: 4px 10px;
+        }
     }
-  }
-
-  h1 {
-    margin-top: 0;
-    color: @text-color-highlight;
-    font-size: 1.6em;
-    font-weight: bold;
-  }
-
-  h2 {
-    font-size: 1.3em;
-  }
-
-  via-text-editor[mini] {
-    margin-bottom: 10px;
-  }
-
-  .message {
-    padding-top: 5px;
-    font-size: 11px;
-  }
-
-  &.mini {
-    width: 200px;
-    margin-left: -100px;
-    font-size: 12px;
-  }
 }
 
 
-// Deprecated: overlay, from-top, from-bottom, floating
-// --------------------------------------------------
-// TODO: Remove these!
+via-panel.modal {
 
-.overlay.from-top {
-  top: 0;
-  border-top: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+     &.select-list ol.list-group,
+    .select-list ol.list-group {
+        border-top: 1px solid @modal-input-border-color;
+        padding: 10px 0;
 
-.overlay.from-bottom {
-  bottom: 0;
-  border-bottom: none;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
+        &:empty {
+            border: none;
+            margin-top: 0;
+        }
 
-.overlay.floating {
-  left: auto;
+        li {
+            padding: 6px 20px;
+            line-height: 20px;
+            margin: 2px 0;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            .icon::before {
+                margin-left: 1px;
+            }
+
+            .icon.status {
+                float: right;
+
+                &:before {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+
+            &.selected {
+                .status.icon {
+                    color: @text-color-selected;
+                }
+            }
+        }
+    }
+
+    .select-list .key-binding
+    {
+        // margin-top: -1px;
+        // margin-left: @ui-padding/2;
+        // margin-right: calc( -@ui-padding/3 ~"+" 1px);
+    }
+
+    .select-list .primary-line
+    {
+        display: block;
+    }
+
+    & > *
+    {
+        position: relative; // fixes stacking order
+    }
+
+    &:before
+    {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        background-color: @overlay-background-color;
+        border-radius: 3px;
+        box-shadow: 0 6px 12px -2px hsla(0,0%,0%,.4);
+    }
+
+    &:after
+    {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background: #000;
+        opacity: 0.4;
+        backface-visibility: hidden;
+    }
 }
