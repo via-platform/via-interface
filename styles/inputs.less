@@ -29,7 +29,14 @@ input.input-toggle {
   border-radius: @component-border-radius;
   border: 1px solid @input-border-color;
   background-color: @input-background-color;
-  font-family: Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-family: 'Inconsolata', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  transition: all ease 0.2s;
+
+  &:focus
+  {
+      border-color: @primary-color;
+      box-shadow: 0 0 0 1px @primary-color;
+  }
 
   &::-webkit-input-placeholder {
     color: @text-color-subtle;
@@ -37,6 +44,18 @@ input.input-toggle {
   &:invalid {
     color: @text-color-error;
     border-color: @background-color-error;
+  }
+
+  &.error
+  {
+    color: @text-color-error;
+
+    &:focus
+    {
+        background-color: darken(@background-color-error, 40%);
+        border-color: @background-color-error;
+        box-shadow: 0 0 0 1px @background-color-error;
+    }
   }
 }
 
@@ -308,6 +327,19 @@ input.input-toggle {
     border-radius: @component-border-radius;
     border: 1px solid @button-border-color;
     background-color: @button-background-color;
+
+    &.mini
+    {
+        height: 26px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    &:focus
+    {
+        border: 1px solid @primary-color;
+        box-shadow: 0 0 0 1px @primary-color;
+    }
   }
 }
 

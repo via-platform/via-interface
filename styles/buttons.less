@@ -1,5 +1,5 @@
-@import "./variables";
 @import "variables";
+@import "ui-variables";
 @import "mixins";
 
 //
@@ -11,7 +11,7 @@
 // --------------------------------------------------
 
 .btn {
-  display: inline-block;
+  display: block;
   margin-bottom: 0; // For input.btn
   height: @component-line-height + 2px;
   padding: 0 @component-padding;
@@ -19,14 +19,14 @@
   font-weight: normal;
   line-height: @component-line-height;
   text-align: center;
-  vertical-align: middle;
-  border: none;
+  border: 1px solid @button-border-color;
   border-radius: @component-border-radius;
   background-color: @btn-default-bg;
   white-space: nowrap;
   cursor: pointer;
   z-index: 0;
   -webkit-user-select: none;
+  outline: 0;
 
   &,
   &:active,
@@ -50,9 +50,11 @@
     outline: 0;
     background-image: none;
     box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    background: @button-background-color-active;
   }
 
   &.selected,
+  &.selected:active,
   &.selected:hover {
     // we want the selected button to behave like the :hover button; it's on top of the other buttons.
     z-index: 1;
@@ -180,6 +182,14 @@
   &.icon:before {
     font-size: @font-size + 6px;
   }
+}
+.btn.mini,
+.btn-group.mini > .btn {
+  padding: 0 8px;
+  height: 26px;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 

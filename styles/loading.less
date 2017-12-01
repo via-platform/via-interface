@@ -2,20 +2,60 @@
 // Loading
 // --------------------------------------------------
 
-.loading-spinner(@size) {
-  display: block;
-  width: @size;
-  height: @size;
-  background-image: url(images/octocat-spinner-128.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
 
-  &.inline-block {
-    display: inline-block;
-  }
+.loading-spinner
+{
+    width: 40px;
+    height: 25px;
+    min-width: 40px;
+    min-height: 25px;
+    transform: skew(20deg);
+    border: 2px solid #181818;
+    overflow: visible;
+
+    &::before, &::after
+    {
+        width: 2px;
+        height: 2px;
+        background: @primary-color;
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        animation: shift-one ease 1.5s infinite;
+    }
+
+    &::before
+    {
+        animation: shift-two ease 1.5s infinite;
+    }
 }
 
-.loading-spinner-tiny   { .loading-spinner(16px); }
-.loading-spinner-small  { .loading-spinner(32px); }
-.loading-spinner-medium { .loading-spinner(48px); }
-.loading-spinner-large  { .loading-spinner(64px); }
+.loading-message
+{
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+
+@keyframes shift-one {
+  0%   { transform: translate(0, 0); }
+  20% { transform: translate(38px, 0); }
+  40% { transform: translate(38px, 23px); }
+  50% { transform: translate(38px, 23px); }
+  70% { transform: translate(0, 23px); }
+  90% { transform: translate(0, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes shift-two {
+  0%   { transform: translate(38px, 23px); }
+  20% { transform: translate(0, 23px); }
+  40% { transform: translate(0, 0); }
+  50% { transform: translate(0, 0); }
+  70% { transform: translate(38px, 0); }
+  90% { transform: translate(38px, 23px); }
+  100% { transform: translate(38px, 23px); }
+}

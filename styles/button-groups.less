@@ -1,5 +1,5 @@
-@import "./variables";
 @import "variables";
+@import "ui-variables";
 @import "mixins";
 
 //
@@ -10,17 +10,28 @@
 .btn-group,
 .btn-group-vertical {
   position: relative;
-  display: inline-block;
-  vertical-align: middle; // match .btn alignment given font-size hack above
+  display: flex;
+  align-items: center;
+
   > .btn {
     position: relative;
-    float: left;
     // Bring the "active" button to the front
     &:hover,
-    &:focus,
     &:active,
     &.active {
       z-index: 2;
+    }
+
+    &:focus
+    {
+        z-index: 4;
+        border-color: @primary-color;
+        box-shadow: 0 0 0 1px @primary-color, inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+    }
+
+    &.selected
+    {
+        z-index: 3;
     }
   }
 }
@@ -34,14 +45,14 @@
   border-right: 1px solid @button-border-color;
 }
 .btn-group > .btn:first-child {
-  border-left: none;
+  // border-left: none;
   border-top-left-radius: @component-border-radius;
   border-bottom-left-radius: @component-border-radius;
 }
 .btn-group > .btn:last-child,
 .btn-group > .btn.selected:last-child,
 .btn-group > .dropdown-toggle {
-  border-right: none;
+  // border-right: none;
   border-top-right-radius: @component-border-radius;
   border-bottom-right-radius: @component-border-radius;
 }
