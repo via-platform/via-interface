@@ -13,11 +13,11 @@
 @nav-disabled-link-hover-color:               @gray-light;
 
 //== Tabs
-@nav-tabs-border-color:                       #ddd;
+@nav-tabs-border-color:                       transparent;
 @nav-tabs-link-hover-border-color:            @gray-lighter;
-@nav-tabs-active-link-hover-bg:               @body-bg;
-@nav-tabs-active-link-hover-color:            @gray;
-@nav-tabs-active-link-hover-border-color:     #ddd;
+@nav-tabs-active-link-hover-bg:               @primary-color;
+@nav-tabs-active-link-hover-color:            @primary-color;
+@nav-tabs-active-link-hover-border-color:     @primary-color;
 @nav-tabs-justified-link-border-color:        #ddd;
 @nav-tabs-justified-active-link-border-color: @body-bg;
 
@@ -51,12 +51,10 @@
     > a {
       position: relative;
       display: block;
-      padding: @nav-link-padding;
-      border-radius: @component-border-radius;
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: @background-color-highlight;
+        // background-color: @background-color-highlight;
       }
     }
 
@@ -106,21 +104,28 @@
 // -------------------------
 
 // Give the tabs something to sit on
-.nav-tabs {
-  border-bottom: 1px solid @nav-tabs-border-color;
+.nav-tabs
+{
+    display: flex;
+    padding: 0 10px;
+
   > li {
-    float: left;
-    // Make the list-items overlay the bottom border
     margin-bottom: -1px;
 
     // Actual tabs (as links)
     > a {
-      margin-right: 2px;
-      line-height: @line-height-base;
-      border: 1px solid transparent;
-      border-radius: @border-radius-base @border-radius-base 0 0;
-      &:hover {
-        border-color: @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color @nav-tabs-border-color;
+      margin-right: 20px;
+      line-height: 48px;
+      border-top: 2px solid transparent;
+      border-bottom: 2px solid transparent;
+      padding: 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: @text-color-subtle;
+
+      &:hover
+      {
+          color: #FFF;
       }
     }
 
@@ -130,9 +135,7 @@
       &:hover,
       &:focus {
         color: @nav-tabs-active-link-hover-color;
-        background-color: @nav-tabs-active-link-hover-bg;
-        border: 1px solid @nav-tabs-active-link-hover-border-color;
-        border-bottom-color: transparent;
+        border-bottom-color: @primary-color;
         cursor: default;
       }
     }
@@ -191,14 +194,10 @@
 // -------------------------
 
 .nav-justified {
-  width: 100%;
 
-  > li {
-    float: none;
-    > a {
-      text-align: center;
-      margin-bottom: 5px;
-    }
+  > li
+  {
+      flex: 1;
   }
 
   > .dropdown .dropdown-menu {

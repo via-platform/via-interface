@@ -1,12 +1,17 @@
 @import "variables";
 
 @via-dock-toggle-button-size: 50px;
-@via-dock-resize-handle-size: 1px;
+@via-dock-resize-handle-size: @pane-border-width;
 
 via-dock
 {
     display: flex;
     position: relative;
+
+    via-pane-container via-pane
+    {
+        background-color: @dock-background-color;
+    }
 }
 
 .via-dock-inner
@@ -149,15 +154,37 @@ via-dock
 
     .via-dock-toggle-button-inner
     {
-        &.right .icon { transform: translateX(-@offset); }
         &.bottom .icon { transform: translateY(-@offset); }
-        &.left .icon { transform: translateX(@offset); }
+
+        &.right .icon
+        {
+            transform: rotate(180deg) translateX(@offset);
+
+            &.icon-chevron-right
+            {
+                transform: translateX(-@offset);
+            }
+        }
+
+        &.left .icon
+        {
+            transform: translateX(@offset);
+
+            &.icon-chevron-left
+            {
+                transform: rotate(180deg) translateX(-@offset);
+            }
+        }
     }
 
     .icon
     {
+        background: url('via://ui/images/caret.svg') 0 0 no-repeat;
+        background-size: 12px auto;
         transition: opacity 0.1s ease-in 0.1s;
         opacity: 1;
+        width: 12px;
+        height: 12px;
 
         &::before
         {
@@ -175,7 +202,7 @@ via-dock
     .via-dock-toggle-button-inner
     {
         background-color: @dock-background-color;
-        border: 1px solid @dock-border-color;
+        border: @via-dock-resize-handle-size solid @dock-border-color;
         transition: transform 0.2s ease-out 0s;
     }
 

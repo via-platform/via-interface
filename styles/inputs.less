@@ -87,7 +87,7 @@ input.input-toggle {
       outline: 0; // TODO: Add it back
     }
     &:active {
-      background-color: @background-color-info;
+      background-color: darken(@component-background-color, 15%);
     }
 
     &:before,
@@ -115,9 +115,10 @@ input.input-toggle {
     }
 
     &:checked {
-      background-color: @background-color-info;
+      background-color: @primary-color;
+
       &:active {
-        background-color: @component-background-color;
+        background-color: darken(@primary-color, 15%);
       }
       &:before {
         opacity: 1;

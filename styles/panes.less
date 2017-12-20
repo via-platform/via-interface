@@ -8,7 +8,7 @@ via-pane-container
     min-width: 0;
     min-height: 0;
 
-    via-pane-container-axis
+    via-pane-axis
     {
         position: relative;
         display: flex;
@@ -29,7 +29,7 @@ via-pane-container
         }
     }
 
-    via-pane-container-axis.vertical
+    via-pane-axis.vertical
     {
         flex-direction: column;
 
@@ -48,7 +48,7 @@ via-pane-container
         }
     }
 
-    via-pane-container-axis.horizontal
+    via-pane-axis.horizontal
     {
         flex-direction: row;
 
@@ -78,6 +78,13 @@ via-pane-container
         min-height: 0;
         outline: 0;
         background: @pane-background-color;
+        border-bottom: @pane-border-width solid @pane-border-color;
+        border-right: @pane-border-width solid @pane-border-color;
+
+        &:only-child
+        {
+            border-right: 0;
+        }
 
         .item-views
         {

@@ -13,11 +13,11 @@
 .btn {
   display: block;
   margin-bottom: 0; // For input.btn
-  height: @component-line-height + 2px;
-  padding: 0 @component-padding;
-  font-size: @font-size;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 13px;
   font-weight: normal;
-  line-height: @component-line-height;
+  line-height: 28px;
   text-align: center;
   border: 1px solid @button-border-color;
   border-radius: @component-border-radius;
@@ -281,4 +281,67 @@ input[type="button"] {
   > *:last-child {
     margin-right: 0;
   }
+}
+
+.btn.btn-subtle
+{
+    background: transparent;
+    border-radius: 3px;
+    color: @text-color-subtle;
+    -webkit-font-smoothing: auto;
+    cursor: pointer;
+    border: 1px solid #111;
+
+    &.caret
+    {
+        background-image: url('via://ui/images/caret-down.svg');
+        background-repeat: no-repeat;
+    }
+
+    &.mini
+    {
+        font-size: 11px;
+        padding: 2px 6px;
+        line-height: 16px;
+        height: 22px;
+
+        &.caret
+        {
+            padding-right: 20px;
+            background-size: 12px auto;
+            background-position: right 4px top 6px;
+        }
+    }
+
+    &:hover, &:active
+    {
+        background-color: #181818;
+    }
+
+    &.selected
+    {
+        z-index: 1;
+        color: @text-color-selected;
+        background-color: @button-background-color-selected;
+    }
+}
+
+.btn-text
+{
+    font-family: Inconsolata;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    color: #FFF;
+    font-size: 14px;
+    display: block;
+    transition: opacity ease 0.2s;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+
+    &:active
+    {
+        opacity: 0.6;
+    }
 }
