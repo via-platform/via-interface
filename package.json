@@ -1,15 +1,15 @@
 {
-    "name": "via-interface",
-    "version": "0.0.0",
-    "description": "Via interface default styles.",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-        "via",
-        "trading",
-        "ui"
-    ],
-    "repository": "https://github.com/via-platform/via-interface",
-    "author": "Dakota Gordon"
+  "name": "via-interface",
+  "version": "0.0.1",
+  "description": "Via interface default styles.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "via",
+    "trading",
+    "ui"
+  ],
+  "repository": "https://github.com/via-platform/via-interface",
+  "author": "Dakota Gordon"
 }
