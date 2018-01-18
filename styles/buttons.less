@@ -286,36 +286,26 @@ input[type="button"] {
 .btn.btn-subtle
 {
     background: transparent;
-    border-radius: 3px;
     color: @text-color-subtle;
     -webkit-font-smoothing: auto;
     cursor: pointer;
-    border: 1px solid #111;
+    border: 0;
+    padding: 0 10px;
+    font-size: 11px;
+    border-radius: 0;
 
     &.caret
     {
         background-image: url('via://via-interface/images/caret-down.svg');
         background-repeat: no-repeat;
-    }
-
-    &.mini
-    {
-        font-size: 11px;
-        padding: 2px 6px;
-        line-height: 16px;
-        height: 22px;
-
-        &.caret
-        {
-            padding-right: 20px;
-            background-size: 12px auto;
-            background-position: right 4px top 6px;
-        }
+        background-size: 12px auto;
+        background-position: right 6px top 7px;
+        padding-right: 24px;
     }
 
     &:hover, &:active
     {
-        background-color: #181818;
+        background-color: #444;
     }
 
     &.selected

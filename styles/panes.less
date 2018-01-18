@@ -46,6 +46,11 @@ via-pane-container
                 cursor: row-resize;
             }
         }
+
+        > via-pane:last-child
+        {
+            // margin-bottom: 0;
+        }
     }
 
     via-pane-axis.horizontal
@@ -65,6 +70,11 @@ via-pane-container
                 cursor: col-resize;
             }
         }
+
+        > via-pane:last-child
+        {
+            // margin-right: 0;
+        }
     }
 
     via-pane
@@ -78,13 +88,9 @@ via-pane-container
         min-height: 0;
         outline: 0;
         background: @pane-background-color;
-        border-bottom: @pane-border-width solid @pane-border-color;
-        border-right: @pane-border-width solid @pane-border-color;
-
-        &:only-child
-        {
-            border-right: 0;
-        }
+        border: @pane-border-width solid @pane-border-color;
+        margin-right: 3px;
+        margin-bottom: 3px;
 
         .item-views
         {

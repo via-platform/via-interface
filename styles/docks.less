@@ -10,7 +10,16 @@ via-dock
 
     via-pane-container via-pane
     {
-        background-color: @dock-background-color;
+        background-color: @pane-background-color;
+    }
+
+    &.left
+    {
+        via-pane
+        {
+            margin-left: 3px;
+            margin-right: 0;
+        }
     }
 }
 
@@ -150,11 +159,19 @@ via-dock
         }
     }
 
-    @offset: 8px;
+    @offset: 10px;
 
     .via-dock-toggle-button-inner
     {
-        &.bottom .icon { transform: translateY(-@offset); }
+        &.bottom .icon
+        {
+            transform: rotate(90deg) translateX(-@offset);
+
+            &.icon-chevron-up
+            {
+                transform: rotate(-90deg) translateX(@offset);
+            }
+        }
 
         &.right .icon
         {
@@ -201,7 +218,7 @@ via-dock
 
     .via-dock-toggle-button-inner
     {
-        background-color: @dock-background-color;
+        background-color: @pane-background-color;
         border: @via-dock-resize-handle-size solid @dock-border-color;
         transition: transform 0.2s ease-out 0s;
     }
@@ -222,7 +239,8 @@ via-dock
     width: auto;
     height: auto;
     flex: 0 0 auto;
-    background-color: @dock-border-color;
+    position: absolute;
+    z-index: 11;
 
     &.via-dock-resize-handle-resizable
     {
@@ -230,8 +248,27 @@ via-dock
         &.bottom { cursor: row-resize; }
     }
 
-    &.left, &.right { width: @via-dock-resize-handle-size; }
-    &.bottom { height: @via-dock-resize-handle-size; }
+    &.left, &.right
+    {
+        width: @via-dock-resize-handle-size;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    &.left
+    {
+        left: auto;
+        right: 0;
+    }
+
+    &.bottom
+    {
+        height: @via-dock-resize-handle-size;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
 .via-dock-cursor-overlay
