@@ -1,10 +1,16 @@
 @import "variables";
 
+@toolbar-height: 25px;
+@toolbar-background-color: #282828;
+@toolbar-border-color: #000;
+
 .toolbar
 {
-    height: 32px;
-    padding: 8px 10px;
+    height: @toolbar-height;
+    background: @toolbar-background-color;
+    border-bottom: 1px solid @toolbar-border-color;
     display: flex;
+    line-height: @toolbar-height - 1;
 }
 
 .toolbar-button

@@ -106,19 +106,19 @@
 // Give the tabs something to sit on
 .nav-tabs
 {
-    display: flex;
-    padding: 0 10px;
+    // display: flex;
+    // padding: 0 10px;
 
   > li {
-    margin-bottom: -1px;
+    // margin-bottom: -1px;
 
     // Actual tabs (as links)
     > a {
-      margin-right: 20px;
-      line-height: 48px;
-      border-top: 2px solid transparent;
-      border-bottom: 2px solid transparent;
-      padding: 0;
+      // margin-right: 20px;
+      line-height: 40px;
+      // border-top: 2px solid transparent;
+      // border-bottom: 2px solid transparent;
+      padding: 0 20px;
       font-size: 13px;
       font-weight: 500;
       color: @text-color-subtle;
@@ -134,8 +134,9 @@
       &,
       &:hover,
       &:focus {
+          background: #333;
         color: @nav-tabs-active-link-hover-color;
-        border-bottom-color: @primary-color;
+        // border-bottom-color: @primary-color;
         cursor: default;
       }
     }
