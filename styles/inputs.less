@@ -24,7 +24,7 @@ input.input-toggle {
 // -------------------------
 
 .input-field-mixin() {
-  padding: .25em .4em;
+  padding: .25em 10px;
   line-height: 1.5; // line-height + padding = @text-component-height
   border-radius: @component-border-radius;
   border: 1px solid @input-border-color;
@@ -414,4 +414,25 @@ input.input-toggle {
       transform: translate3d(100%, 0, 0);
     }
   }
+}
+
+.input-unit
+{
+    position: relative;
+}
+
+.input-unit-label
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 18px;
+    line-height: 18px;
+    margin: auto 0;
+    right: 8px;
+    font-family: @font-family;
+    font-size: 11px;
+    font-weight: 700;
+    color: @text-color-subtle;
+    text-transform: uppercase;
 }
