@@ -1,7 +1,8 @@
 @import "variables";
 
 @via-dock-toggle-button-size: 50px;
-@via-dock-resize-handle-size: @pane-border-width;
+@via-dock-resize-handle-size: 8px;
+@via-dock-toggle-border-width: 1px;
 
 via-dock
 {
@@ -10,7 +11,7 @@ via-dock
 
     via-pane-container via-pane
     {
-        background-color: @pane-content-background-color;
+        // background-color: @pane-background-color;
     }
 
     &.left
@@ -116,19 +117,19 @@ via-dock
 
     &.bottom
     {
-        top: (-@via-dock-toggle-button-size / 2) + @via-dock-resize-handle-size;
+        top: (-@via-dock-toggle-button-size / 2) + @via-dock-toggle-border-width;
         height: @via-dock-toggle-button-size / 2;
     }
 
     &.right
     {
-        left: (-@via-dock-toggle-button-size / 2) + @via-dock-resize-handle-size;
+        left: (-@via-dock-toggle-button-size / 2) + @via-dock-toggle-border-width;
         width: @via-dock-toggle-button-size / 2;
     }
 
     &.left
     {
-        right: (-@via-dock-toggle-button-size / 2) + @via-dock-resize-handle-size;
+        right: (-@via-dock-toggle-button-size / 2) + @via-dock-toggle-border-width;
         width: @via-dock-toggle-button-size / 2;
     }
 
@@ -219,7 +220,7 @@ via-dock
     .via-dock-toggle-button-inner
     {
         background-color: @pane-background-color;
-        border: @via-dock-resize-handle-size solid @dock-border-color;
+        border: @via-dock-toggle-border-width solid @pane-border-color;
         transition: transform 0.2s ease-out 0s;
     }
 
@@ -251,7 +252,7 @@ via-dock
     &.left, &.right
     {
         width: @via-dock-resize-handle-size;
-        left: 0;
+        left: -1 * (@via-dock-resize-handle-size / 2);
         top: 0;
         bottom: 0;
     }
@@ -259,13 +260,13 @@ via-dock
     &.left
     {
         left: auto;
-        right: 0;
+        right: -1 * (@via-dock-resize-handle-size / 2);
     }
 
     &.bottom
     {
         height: @via-dock-resize-handle-size;
-        top: 0;
+        top: -1 * (@via-dock-resize-handle-size / 2);
         left: 0;
         right: 0;
     }

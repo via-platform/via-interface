@@ -1,34 +1,54 @@
 @import "variables";
 
-@toolbar-height: 25px;
-@toolbar-background-color: #282828;
-@toolbar-border-color: #000;
+@toolbar-height: 24px;
+@toolbar-background-color: @header-background-color;
+@toolbar-border-color: @header-border-color;
 
 .toolbar
 {
-    height: @toolbar-height;
+    height: @toolbar-height + 1;
     background: @toolbar-background-color;
     border-bottom: 1px solid @toolbar-border-color;
     display: flex;
-    line-height: @toolbar-height - 1;
+    line-height: @toolbar-height;
+
+    .toolbar-spacer
+    {
+        flex: 1;
+    }
 }
 
 .toolbar-button
 {
-    margin-left: 10px;
-    background: #444;
-    border: 1px solid #111;
-    border-radius: 3px;
-    color: #888;
-    font-size: 12px;
-    height: 24px;
-    line-height: 22px;
-    padding: 0 8px;
+    height: @toolbar-height;
+    line-height: @toolbar-height;
     display: block;
+    background: transparent;
+    color: @text-color-subtle;
+    -webkit-font-smoothing: auto;
+    cursor: pointer;
+    padding: 0 10px;
+    font-size: 11px;
 
-    &:first-child
+    &.caret
     {
-        margin-left: 0;
+        background-image: url('via://via-interface/images/caret-down.svg');
+        background-repeat: no-repeat;
+        background-size: 12px auto;
+        background-position: right 6px top 7px;
+        padding-right: 24px;
+    }
+
+    &:hover, &:active
+    {
+        color: @text-color;
+    }
+
+    &.selected
+    {
+        z-index: 1;
+        color: @text-color-selected;
+        background-color: @button-background-color-selected;
     }
 }
 

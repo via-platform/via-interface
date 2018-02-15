@@ -87,8 +87,7 @@ via-pane-container
         min-width: 0;
         min-height: 0;
         outline: 0;
-        background: @pane-content-background-color;
-        border: @pane-border-width solid @pane-border-color;
+        background: transparent;
         margin-right: 3px;
         margin-bottom: 3px;
 
@@ -100,14 +99,10 @@ via-pane-container
             min-height: 0;
             position: relative;
 
-            .pane-item
-            {
-                color: @text-color;
-                background-color: @pane-background-color;
-            }
-
             > *
             {
+                background-color: @pane-background-color;
+                border: 1px solid @pane-border-color;
                 position: absolute;
                 top: 0;
                 right: 0;
