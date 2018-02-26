@@ -115,13 +115,14 @@
     // Actual tabs (as links)
     > a {
       // margin-right: 20px;
-      line-height: 40px;
+      line-height: 30px;
       // border-top: 2px solid transparent;
       // border-bottom: 2px solid transparent;
       padding: 0 20px;
       font-size: 13px;
       font-weight: 500;
       color: @text-color-subtle;
+      margin-bottom: 4px;
 
       &:hover
       {
@@ -134,8 +135,8 @@
       &,
       &:hover,
       &:focus {
-          background: #333;
-        color: @nav-tabs-active-link-hover-color;
+          background: @primary-color;
+        color: #FFF;
         // border-bottom-color: @primary-color;
         cursor: default;
       }

@@ -13,13 +13,12 @@
 .btn {
   display: block;
   margin-bottom: 0; // For input.btn
-  height: 30px;
+  height: 26px + (2 * @button-border-width);
   padding: 0 10px;
   font-size: 13px;
-  font-weight: normal;
-  line-height: 28px;
+  line-height: 26px;
   text-align: center;
-  border: 1px solid @button-border-color;
+  border: @button-border-width solid @button-border-color;
   border-radius: @component-border-radius;
   background-color: @btn-default-bg;
   white-space: nowrap;
@@ -27,6 +26,8 @@
   z-index: 0;
   -webkit-user-select: none;
   outline: 0;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
 
   &,
   &:active,

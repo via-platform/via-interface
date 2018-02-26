@@ -34,8 +34,8 @@ input.input-toggle {
 
   &:focus
   {
-      border-color: @primary-color;
-      box-shadow: 0 0 0 1px @primary-color;
+      border-color: @input-outline-color;
+      box-shadow: 0 0 0 1px @input-outline-color;
   }
 
   &::-webkit-input-placeholder {
@@ -98,7 +98,7 @@ input.input-toggle {
       left: @component-size * .4;
       height: 2px;
       border-radius: 1px;
-      background-color: @base-background-color;
+      background-color: @input-outline-color;
       transform-origin: 0 0;
       opacity: 0;
       transition: transform .1s cubic-bezier(0.5, 0.15, 0.2, 1), opacity .1s cubic-bezier(0.5, 0.15, 0.2, 1);
@@ -328,6 +328,7 @@ input.input-toggle {
     border-radius: @component-border-radius;
     border: 1px solid @button-border-color;
     background-color: @button-background-color;
+    font-family: @font-family-serif;
 
     &.mini
     {
@@ -338,8 +339,8 @@ input.input-toggle {
 
     &:focus
     {
-        border: 1px solid @primary-color;
-        box-shadow: 0 0 0 1px @primary-color;
+        border: 1px solid @input-outline-color;
+        box-shadow: 0 0 0 1px @input-outline-color;
     }
   }
 }

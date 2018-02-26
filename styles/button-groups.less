@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
 
-  > .btn, > .btn-subtle {
+  > .btn {
     position: relative;
     // Bring the "active" button to the front
     &:hover,
@@ -25,8 +25,7 @@
     &:focus
     {
         z-index: 4;
-        border-color: @primary-color;
-        box-shadow: 0 0 0 1px @primary-color, inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+        // outline: 2px solid @input-outline-color;
     }
 
     &.selected
@@ -41,8 +40,8 @@
 // ---------------------------------------------------------
 
 .btn-group > .btn {
-  border-left: 1px solid @button-border-color;
-  border-right: 1px solid @button-border-color;
+  border-left: @button-border-width solid @button-border-color;
+  border-right: @button-border-width solid @button-border-color;
 }
 .btn-group > .btn:first-child {
   // border-left: none;
@@ -57,13 +56,17 @@
   border-bottom-right-radius: @component-border-radius;
 }
 
-// Prevent double borders when buttons are next to each other
 .btn-group {
   .btn + .btn,
   .btn + .btn-group,
   .btn-group + .btn,
   .btn-group + .btn-group {
-    margin-left: -1px;
+    margin-left: 1px;
+
+    &:first-child
+    {
+        margin-left: 0;
+    }
   }
 }
 
