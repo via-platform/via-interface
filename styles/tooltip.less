@@ -5,9 +5,9 @@
 // --------------------------------------------------
 
 @tooltip-max-width:           200px; //** Tooltip max width
-@tooltip-color:               #fff; //** Tooltip text color
+@tooltip-color:               #FFF; //** Tooltip text color
 @tooltip-bg:                  @background-color-info; //** Tooltip background color
-@tooltip-opacity:             .9;
+@tooltip-opacity:             1;
 @tooltip-arrow-width:         5px; //** Tooltip arrow width
 @tooltip-arrow-color:         @tooltip-bg; //** Tooltip arrow color
 @tooltip-zindex:              1070;
@@ -26,21 +26,50 @@
   font-size: @font-size;
   opacity: 0;
 
-  &.in     { opacity: @tooltip-opacity; }
+  &.in
+  {
+      opacity: @tooltip-opacity;
+      transition: opacity .15s ease-out;
+  }
+
   &.top    { margin-top:  -3px; padding: @tooltip-arrow-width 0; }
   &.right  { margin-left:  3px; padding: 0 @tooltip-arrow-width; }
   &.bottom { margin-top:   3px; padding: @tooltip-arrow-width 0; }
   &.left   { margin-left: -3px; padding: 0 @tooltip-arrow-width; }
+
+    .keystroke
+    {
+        padding: 0 3px;
+        text-align: center;
+        background-color: @tooltip-color;
+        font-size: 14px;
+        font-weight: 700;
+        -webkit-font-smoothing: antialiased;
+        margin: 0 -4px 0 6px;
+        border-radius: @component-border-radius;
+        color: @tooltip-bg;
+        font-family: Inconsolata;
+        line-height: 18px;
+        height: 18px;
+        min-width: 18px;
+        display: inline-block;
+    }
 }
 
 // Wrapper for the tooltip content
 .tooltip-inner {
-  max-width: @tooltip-max-width;
-  padding: 3px 8px;
-  color: @tooltip-color;
-  text-align: center;
-  background-color: @tooltip-bg;
-  border-radius: @component-border-radius;
+    max-width: @tooltip-max-width;
+    padding: 6px 10px;
+    color: @tooltip-color;
+    text-align: center;
+    background-color: @tooltip-bg;
+    border-radius: @component-border-radius;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    -webkit-font-smoothing: antialiased;
+    white-space: nowrap;
+    max-width: none;
 }
 
 // Arrows
