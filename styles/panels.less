@@ -27,3 +27,36 @@ via-panel-container > via-panel.right > *
 {
     height: initial;
 }
+
+.panel-empty
+{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-direction: column;
+
+    .message
+    {
+        font-size: 13px;
+        font-family: @font-family-serif;
+        color: fade(@text-color-subtle, 50%);
+        text-align: center;
+    }
+
+    kbd
+    {
+        background: fade(@text-color-subtle, 50%);
+        color: @pane-background-color;
+        font-weight: 700;
+        -webkit-font-smoothing: antialiased;
+        padding: 2px 3px;
+        min-width: 18px;
+        border-radius: 2px;
+        line-height: 14px;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 10px;
+    }
+}

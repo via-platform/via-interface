@@ -21,18 +21,29 @@
     .thead
     {
         display: flex;
+        border-bottom: 1px solid @header-border-color;
+        background: @header-background-color;
 
-        .th
+        .td, .th
         {
+            line-height: 24px;
             flex: 1;
-            font-size: 13px;
-            font-family: Inconsolata;
-            font-weight: 700;
+            font-size: 11px;
+            color: @text-color-subtle;
             padding: 0 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
 
-            &.align-right
+            &:first-child
+            {
+                text-align: left;
+            }
+
+            &:last-child
             {
                 text-align: right;
+                border-right: 0;
             }
         }
     }
