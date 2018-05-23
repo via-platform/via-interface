@@ -8,17 +8,17 @@ via-dock
 {
     display: flex;
     position: relative;
+    margin-top: @pane-margin;
 
-    via-pane-container via-pane
+    &.bottom
     {
-        // background-color: @pane-background-color;
+        margin-top: 0;
     }
 
-    &.left
+    &.right
     {
         via-pane
         {
-            margin-left: 3px;
             margin-right: 0;
         }
     }

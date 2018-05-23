@@ -26,10 +26,11 @@
     display: block;
     background: transparent;
     color: @text-color-subtle;
-    -webkit-font-smoothing: auto;
     cursor: pointer;
-    padding: 0 10px;
+    padding: 0 8px;
     font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
 
     &.caret
     {
@@ -42,6 +43,8 @@
 
     &:hover, &:active
     {
+        // color: @text-color;
+        background-color: lighten(@header-background-color, 10%);
         color: @text-color;
     }
 
@@ -60,7 +63,7 @@
     border: 1px solid #080808;
     border-radius: 3px;
     color: #888;
-    font-size: 12px;
+    font-size: 11px;
     height: 24px;
     line-height: 22px;
     padding: 0 6px;

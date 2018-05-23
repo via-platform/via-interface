@@ -88,8 +88,8 @@ via-pane-container
         min-height: 0;
         outline: 0;
         background: transparent;
-        margin-right: 3px;
-        margin-bottom: 3px;
+        margin-right: @pane-margin;
+        margin-bottom: @pane-margin;
 
         .item-views
         {
@@ -98,16 +98,34 @@ via-pane-container
             min-width: 0;
             min-height: 0;
             position: relative;
+            border-top: 1px solid @header-border-color;
 
             > *
             {
-                background-color: @pane-background-color;
-                border: 1px solid @pane-border-color;
+                // background-color: @pane-background-color;
+                // border: 1px solid @header-border-color; //@pane-border-color;
                 position: absolute;
                 top: 0;
                 right: 0;
                 bottom: 0;
                 left: 0;
+                transition: border-color ease 0.1s;
+            }
+        }
+
+        &.has-focus
+        {
+            .item-views::before
+            {
+                position: absolute;
+                top: -1px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border: 1px solid @primary-color;
+                pointer-events: none;
+                content: "";
+                z-index: 2;
             }
         }
     }
