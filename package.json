@@ -1,6 +1,6 @@
 {
   "name": "via-interface",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Via interface default styles.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
