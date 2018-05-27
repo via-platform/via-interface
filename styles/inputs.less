@@ -3,7 +3,7 @@
 @component-size: @component-icon-size; // use for text-less controls like radio, checkboxes etc.
 @component-margin-side: .3em;
 @text-component-height: 2em;
-@component-background-color: mix(@text-color, @base-background-color, 20%);
+@component-background-color: @header-background-color;//mix(@text-color, @base-background-color, 20%);
 
 
 //
@@ -24,18 +24,21 @@ input.input-toggle {
 // -------------------------
 
 .input-field-mixin() {
-  padding: .25em 10px;
-  line-height: 1.5; // line-height + padding = @text-component-height
+  padding: 0 8px;
+  line-height: 28px;
   border-radius: @component-border-radius;
   border: 1px solid @input-border-color;
   background-color: @input-background-color;
   font-family: @font-family;
   transition: all ease 0.2s;
+  font-weight: 700;
+  font-size: 11px;
+  -webkit-font-smoothing: antialiased;
 
   &:focus
   {
       border-color: @input-outline-color;
-      box-shadow: 0 0 0 1px @input-outline-color;
+      // box-shadow: 0 0 0 1px @input-outline-color;
   }
 
   &::-webkit-input-placeholder {
@@ -54,7 +57,7 @@ input.input-toggle {
     {
         background-color: darken(@background-color-error, 40%);
         border-color: @background-color-error;
-        box-shadow: 0 0 0 1px @background-color-error;
+        // box-shadow: 0 0 0 1px @background-color-error;
     }
   }
 }
@@ -324,23 +327,24 @@ input.input-toggle {
   vertical-align: middle;
 
   & when (@use-custom-controls) {
-    height: calc(@text-component-height ~'+' 2px); // + 2px? Magic!
+    height: 30px;
     border-radius: @component-border-radius;
-    border: 1px solid @button-border-color;
-    background-color: @button-background-color;
-    font-family: @font-family-serif;
-
-    &.mini
-    {
-        height: 26px;
-        font-size: 11px;
-        font-weight: 500;
-    }
+    border: 1px solid @input-border-color;
+    background: url('via://via-interface/images/options.svg') no-repeat @input-background-color;
+    background-size: 7px auto;
+    background-position: center right 6px;
+    font-family: @font-family;
+    font-size: 11px;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    line-height: 28px;
+    padding: 0 8px;
+    -webkit-appearance: none;
 
     &:focus
     {
         border: 1px solid @input-outline-color;
-        box-shadow: 0 0 0 1px @input-outline-color;
+        // box-shadow: 0 0 0 1px @input-outline-color;
     }
   }
 }
@@ -436,4 +440,37 @@ input.input-toggle {
     font-weight: 700;
     color: @text-color-subtle;
     text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+}
+
+.input-label
+{
+    display: flex;
+
+    .title
+    {
+        font-family: @font-family;
+        font-size: 11px;
+        font-weight: 500;
+        color: @text-color-subtle;
+        padding: 0 8px;
+        height: 30px;
+        line-height: 28px;
+        -webkit-font-smoothing: antialiased;
+        background-color: @input-background-color;
+        border: 1px solid @input-border-color;
+        border-right: 0;
+        border-radius: @component-border-radius 0 0 @component-border-radius;
+        white-space: nowrap;
+    }
+
+    > input, > .input-unit, > select
+    {
+        flex: 1;
+    }
+
+    input, select
+    {
+        border-radius: 0 @component-border-radius @component-border-radius 0;
+    }
 }
