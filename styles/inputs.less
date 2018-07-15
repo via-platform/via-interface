@@ -462,6 +462,43 @@ input.input-toggle {
         border-right: 0;
         border-radius: @component-border-radius 0 0 @component-border-radius;
         white-space: nowrap;
+        user-select: none;
+
+        &.options
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: default;
+
+            .caret
+            {
+                width: 12px;
+                height: 12px;
+                margin: 0 0 0 6px;
+                background-image: url('via://via-interface/images/caret-down.svg');
+                background-repeat: no-repeat;
+                background-size: 14px auto;
+                background-position: -1px 1px;
+                opacity: 0.4;
+            }
+
+            &:hover
+            {
+                background-color: lighten(@input-background-color, 7%);
+            }
+
+            &:active
+            {
+                background-color: @primary-color;
+                color: @text-color;
+
+                .caret
+                {
+                    opacity: 1;
+                }
+            }
+        }
     }
 
     > input, > .input-unit, > select
@@ -472,5 +509,6 @@ input.input-toggle {
     input, select
     {
         border-radius: 0 @component-border-radius @component-border-radius 0;
+        border-left: 0;
     }
 }
