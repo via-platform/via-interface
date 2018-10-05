@@ -1,5 +1,7 @@
 @import "variables";
 
+@pane-border-width: 4px;
+
 via-pane-container
 {
     position: relative;
@@ -83,13 +85,14 @@ via-pane-container
         display: flex;
         flex: 1;
         flex-direction: column;
-        overflow: visible;
         min-width: 0;
         min-height: 0;
         outline: 0;
         background: transparent;
         margin-right: @pane-margin;
         margin-bottom: @pane-margin;
+        overflow: hidden;
+        // overflow: visible;
 
         .item-views
         {
@@ -98,6 +101,8 @@ via-pane-container
             min-width: 0;
             min-height: 0;
             position: relative;
+            // border: @pane-border-width solid @header-background-color;
+            background: @header-background-color;
             border-top: 1px solid @header-border-color;
 
             > *
@@ -105,11 +110,12 @@ via-pane-container
                 // background-color: @pane-background-color;
                 // border: 1px solid @header-border-color; //@pane-border-color;
                 position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
+                top: @pane-border-width;
+                right: @pane-border-width;
+                bottom: @pane-border-width;
+                left: @pane-border-width;
                 transition: border-color ease 0.1s;
+                border: 1px solid @header-border-color;
             }
         }
 

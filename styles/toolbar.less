@@ -1,14 +1,15 @@
 @import "variables";
 
-@toolbar-height: 24px;
-@toolbar-background-color: @header-background-color;
+@toolbar-height: 22px;
+@toolbar-background-color: lighten(@pane-background-color, 3%);
 @toolbar-border-color: @header-border-color;
+@toolbar-border-width: 1px;
 
 .toolbar
 {
-    height: @toolbar-height + 1;
+    height: @toolbar-height + @toolbar-border-width;
     background: @toolbar-background-color;
-    border-bottom: 1px solid @toolbar-border-color;
+    border-bottom: @toolbar-border-width solid @toolbar-border-color;
     display: flex;
     line-height: @toolbar-height;
     user-select: none;
@@ -27,7 +28,7 @@
     background: transparent;
     color: @text-color-subtle;
     cursor: pointer;
-    padding: 0 8px;
+    padding: 0 6px;
     font-size: 11px;
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
@@ -37,14 +38,14 @@
         background-image: url('via://via-interface/images/caret-down.svg');
         background-repeat: no-repeat;
         background-size: 12px auto;
-        background-position: right 6px top 7px;
+        background-position: right 6px top 6px;
         padding-right: 24px;
     }
 
     &:hover, &:active
     {
-        // color: @text-color;
-        background-color: lighten(@header-background-color, 10%);
+        cursor: default;
+        background-color: lighten(@header-background-color, 15%);
         color: @text-color;
     }
 

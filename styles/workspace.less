@@ -33,9 +33,13 @@ via-workspace
         min-height: 0;
     }
 
-    > via-workspace-axis.horizontal > via-workspace-axis.vertical
+    > via-workspace-axis.horizontal
     {
-        margin-top: @pane-margin;
-        // margin-left: @pane-margin;
+        margin-right: -1 * @pane-margin;
+
+        > via-workspace-axis.vertical
+        {
+            margin-top: @pane-margin;
+        }
     }
 }
